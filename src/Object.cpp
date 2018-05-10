@@ -33,7 +33,7 @@ void Object::Afficher(sf::RenderWindow &fenetre)
     //std::cout << m_body.size() << std::endl;
 }
 
-void Object::HitBox(Player player)
+void Object::HitBox(Player &player)
 {
     std::vector<Bullet> bullets;
     double x, y, xBody, yBody;
@@ -50,10 +50,17 @@ void Object::HitBox(Player player)
                 yBody = m_body[j].getPosition().y;
                 if((x >= xBody && x <= xBody + 5) && (y >= yBody && y <= yBody + 5))
                 {
+                    bullets.erase(bullets.begin() + i);
                     m_body.erase(m_body.begin() + j);
                 }
             }
             //std::cout << "Touche" << std::endl;
         }
     }
+    player.SetBullets(bullets);
+}
+
+double Object::GetBodySize()
+{
+    return m_body.size();
 }

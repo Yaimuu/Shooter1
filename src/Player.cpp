@@ -9,6 +9,7 @@ Player::Player()
     m_larg = 20;
     m_rot = 90;
     m_speed = 1.5;
+    m_fireRate = 2;
     m_player = sf::RectangleShape(sf::Vector2f(m_long,m_larg));
     m_player.setFillColor(sf::Color(255,0,0));
     //m_player.setOrigin(sf::Vector2f(m_x,m_y));
@@ -86,6 +87,7 @@ void Player::Tirer(sf::RenderWindow &fenetre)
 
     Bullet bullet = Bullet(m_x, m_y, m_rot, posSouris.x, posSouris.y);
     m_bullets.push_back(bullet);
+
 }
 
 void Player::TestBullet()
@@ -103,4 +105,9 @@ void Player::TestBullet()
 std::vector<Bullet> Player::GetBullets()
 {
     return m_bullets;
+}
+
+void Player::SetBullets(std::vector<Bullet> bullets)
+{
+    m_bullets = bullets;
 }

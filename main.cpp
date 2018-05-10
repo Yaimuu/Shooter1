@@ -58,6 +58,10 @@ int main()
             {
                 objets[i].Afficher(app);
                 objets[i].HitBox(player);
+                if(objets[i].GetBodySize() == 0)
+                {
+                    objets.erase(objets.begin() + i);
+                }
             }
             //std::cout << objets.size() << std::endl;
         }

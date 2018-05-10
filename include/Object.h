@@ -16,8 +16,8 @@ class Object
         Object(double x, double y);
         virtual ~Object();
         void Afficher(sf::RenderWindow &fenetre);
-        void HitBox(Player player);
-
+        void HitBox(Player &player);
+        double GetBodySize();
 
     protected:
 
