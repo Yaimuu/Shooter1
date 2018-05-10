@@ -2,6 +2,7 @@
 #define BULLET_H
 #include <SFML/Graphics.hpp>
 #include <math.h>
+#include "../complex.h"
 
 class Bullet
 {
@@ -12,6 +13,8 @@ class Bullet
         void Move();
         double GetRange();
         double GetDist();
+        double GetPosX();
+        double GetPosY();
 
     protected:
 

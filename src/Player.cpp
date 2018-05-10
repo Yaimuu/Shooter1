@@ -1,5 +1,5 @@
 #include "Player.h"
-#include "../complex.h"
+
 
 Player::Player()
 {
@@ -98,4 +98,9 @@ void Player::TestBullet()
         }
 
     }
+}
+
+std::vector<Bullet> Player::GetBullets()
+{
+    return m_bullets;
 }

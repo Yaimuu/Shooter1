@@ -23,7 +23,7 @@ class Object
 
     private:
         std::vector<sf::RectangleShape> m_body;
-        double m_x, m_y;
+        double m_x, m_y, m_width, m_height;
 };
 
 #endif // OBJECT_H

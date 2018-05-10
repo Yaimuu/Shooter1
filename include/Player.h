@@ -10,6 +10,7 @@
 #include <sstream>
 #include <list>
 #include "Bullet.h"
+#include "../complex.h"
 
 class Player
 {
@@ -21,6 +22,7 @@ class Player
         void Focus(sf::RenderWindow &fenetre);
         void Move(sf::Event &event);
         void TestBullet();
+        std::vector<Bullet> GetBullets();
 
     protected:
 

@@ -57,8 +57,9 @@ int main()
             for(int i = 0; i < objets.size(); i++)
             {
                 objets[i].Afficher(app);
+                objets[i].HitBox(player);
             }
-            std::cout << objets.size() << std::endl;
+            //std::cout << objets.size() << std::endl;
         }
 
 
