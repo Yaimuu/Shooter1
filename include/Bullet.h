@@ -15,13 +15,13 @@ class Bullet
         double GetDist();
         double GetPosX();
         double GetPosY();
-
+        void SetRot(double rot);
 
     protected:
 
     private:
         sf::RectangleShape m_bullet;
-        double m_Ox, m_Oy, m_x, m_y, m_pasX, m_pasY, m_range, m_speed;
+        double m_Ox, m_Oy, m_x, m_y, m_pasX, m_pasY, m_range, m_speed, m_rot;
 
 };
 

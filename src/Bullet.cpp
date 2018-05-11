@@ -6,6 +6,7 @@ Bullet::Bullet(double x, double y, float angle, double xDest, double yDest)
     m_y = y;
     m_Ox = x;
     m_Oy = y;
+    m_rot = angle;
     m_speed = 5;
     m_pasX = cos(M_PI*angle/180) * m_speed;
     m_pasY = sin(M_PI*angle/180) * m_speed;
@@ -28,8 +29,8 @@ void Bullet::Afficher(sf::RenderWindow &fenetre)
     float center_x = m_bullet.getPosition().x;
     float center_y = m_bullet.getPosition().y;
 
-    m_bullet.setRotation(argument2(center_x, center_y, posSouris.x, posSouris.y)*180/M_PI);
-
+    //m_bullet.setRotation(argument2(center_x, center_y, posSouris.x, posSouris.y)*180/M_PI);
+    m_bullet.setRotation(m_rot);
     fenetre.draw(m_bullet);
 }
 
@@ -60,3 +61,7 @@ double Bullet::GetPosY()
     return m_y;
 }
 
+void Bullet::SetRot(double rot)
+{
+    m_rot = rot;
+}
