@@ -24,13 +24,14 @@ class Player
         void TestBullet();
         std::vector<Bullet> GetBullets();
         void SetBullets(std::vector<Bullet> bullets);
+        void SetFireRate(double newFireRate);
 
     protected:
 
     private:
         void SetPos(double x, double y);
         sf::RectangleShape m_player;
-        double m_x, m_y, m_long, m_larg, m_speed, m_fireRate;
+        double m_x, m_y, m_long, m_larg, m_speed, m_fireRate, m_countFire;
         float m_rot;
         std::vector<Bullet> m_bullets;
 };

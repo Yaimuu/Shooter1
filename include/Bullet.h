@@ -16,6 +16,7 @@ class Bullet
         double GetPosX();
         double GetPosY();
 
+
     protected:
 
     private:

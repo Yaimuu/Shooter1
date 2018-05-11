@@ -11,7 +11,7 @@ Bullet::Bullet(double x, double y, float angle, double xDest, double yDest)
     m_pasY = sin(M_PI*angle/180) * m_speed;
 
     m_bullet.setSize(sf::Vector2f(5,2));
-    m_bullet.setFillColor(sf::Color::White);
+    m_bullet.setFillColor(sf::Color::Black);
     m_bullet.setPosition(m_x,m_y);
     m_range = 1000;
 }
@@ -59,3 +59,4 @@ double Bullet::GetPosY()
 {
     return m_y;
 }
+

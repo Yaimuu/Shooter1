@@ -11,26 +11,45 @@
 
 Player player = Player();
 int countObjects = 0;
+double fire_rate = 2;
 int main()
 {
     // Create the main window
     sf::RenderWindow app(sf::VideoMode(800, 600), "SFML window");
+
     app.setFramerateLimit(120);
     std::vector<Object> objets;
     sf::Vector2i posSouris;
-
+    int mouseWheel;
 
 	// Start the game loop
     while (app.isOpen())
     {
-        posSouris = sf::Mouse::getPosition(app);
-        // Process events
         sf::Event event;
+        posSouris = sf::Mouse::getPosition(app);
+
+
         while (app.pollEvent(event))
         {
             // Close window : exit
             if (event.type == sf::Event::Closed)
                 app.close();
+            if(event.type == sf::Event::MouseWheelMoved)
+            {
+                mouseWheel = event.mouseWheel.delta;
+                if(mouseWheel < 0)
+                {
+                    fire_rate += 0.1;
+                    player.SetFireRate(fire_rate);
+                    std::cout << fire_rate << std::endl;
+                }
+                else if(mouseWheel > 0 )
+                {
+                    fire_rate -= 0.1;
+                    player.SetFireRate(fire_rate);
+                    std::cout << fire_rate << std::endl;
+                }
+            }
         }
 
         player.Move(event);
@@ -50,7 +69,7 @@ int main()
         }
 
 
-        app.clear();
+        app.clear(sf::Color::White);
 
         if(objets.size() != 0)
         {
