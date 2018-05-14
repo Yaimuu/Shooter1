@@ -18,6 +18,7 @@ class Object
         void Afficher(sf::RenderWindow &fenetre);
         void HitBox(Player &player);
         double GetBodySize();
+        void Explosion();
 
     protected:
 

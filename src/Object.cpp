@@ -4,16 +4,16 @@ Object::Object(double x, double y)
 {
     m_x = x;
     m_y = y;
-    m_width = 4;
-    m_height = 4;
+    m_width = 20;
+    m_height = 20;
     sf::RectangleShape rect;
-    rect.setSize(sf::Vector2f(5,5));
+    rect.setSize(sf::Vector2f(3,3));
     rect.setFillColor(sf::Color::Blue);
     for(int i = 0; i < m_height; i++)
     {
         for(int j = 0; j < m_width; j++)
         {
-            rect.setPosition(sf::Vector2f(m_x + (j*5), m_y + (i*5)));
+            rect.setPosition(sf::Vector2f(m_x + (j*3), m_y + (i*3)));
             m_body.push_back(rect);
         }
     }
@@ -63,4 +63,21 @@ void Object::HitBox(Player &player)
 double Object::GetBodySize()
 {
     return m_body.size();
+}
+
+void Object::Explosion()
+{
+    double x, y, speed;
+    speed = rand() % 2 - 2;
+    if(m_body.size()/(m_width*m_height) < 0.5)
+    {
+        for(int j = 0; j < m_body.size(); j++)
+        {
+            speed = rand() % 2 + 2;
+            x = m_body[j].getPosition().x;
+            y = m_body[j].getPosition().y;
+            m_body[j].setPosition(x + speed, y + speed);
+        }
+    }
+
 }

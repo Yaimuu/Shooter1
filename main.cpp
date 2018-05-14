@@ -60,7 +60,7 @@ int main()
         }
         if(sf::Mouse::isButtonPressed(sf::Mouse::Right))
         {
-            if(countObjects % 6 == 0)
+            if(countObjects % 10 == 0)
             {
                 objets.push_back(Object(posSouris.x, posSouris.y));
             }
@@ -75,6 +75,7 @@ int main()
         {
             for(int i = 0; i < objets.size(); i++)
             {
+                objets[i].Explosion();
                 objets[i].Afficher(app);
                 objets[i].HitBox(player);
                 if(objets[i].GetBodySize() == 0)
