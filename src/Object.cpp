@@ -67,16 +67,18 @@ double Object::GetBodySize()
 
 void Object::Explosion()
 {
-    double x, y, speed;
-    speed = rand() % 2 - 2;
+    double x, y, speedx, speedy;
+    speedx = rand() % 2 - 2;
+    speedy = rand() % 2 - 2;
     if(m_body.size()/(m_width*m_height) < 0.5)
     {
         for(int j = 0; j < m_body.size(); j++)
         {
-            speed = rand() % 2 + 2;
+            speedx = rand()/2 % 4 - 2;
+            speedy = rand()/2 % 4 - 2;
             x = m_body[j].getPosition().x;
             y = m_body[j].getPosition().y;
-            m_body[j].setPosition(x + speed, y + speed);
+            m_body[j].setPosition(x + speedx, y + speedy);
         }
     }
 

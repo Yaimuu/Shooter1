@@ -14,6 +14,7 @@ int countObjects = 0;
 double fire_rate = 2;
 int main()
 {
+    std::srand(std::time(NULL));
     // Create the main window
     sf::RenderWindow app(sf::VideoMode(800, 600), "SFML window");
 
@@ -25,6 +26,7 @@ int main()
 	// Start the game loop
     while (app.isOpen())
     {
+        srand((unsigned)time(0));
         sf::Event event;
         posSouris = sf::Mouse::getPosition(app);
 
