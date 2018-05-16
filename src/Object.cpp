@@ -6,6 +6,8 @@ Object::Object(double x, double y)
     m_y = y;
     m_width = 20;
     m_height = 20;
+    m_isDestroyed = false;
+    m_destroyedDuration = 0;
     sf::RectangleShape rect;
     rect.setSize(sf::Vector2f(3,3));
     rect.setFillColor(sf::Color::Blue);
@@ -70,7 +72,7 @@ void Object::Explosion()
     double x, y, speedx, speedy;
     speedx = rand() % 2 - 2;
     speedy = rand() % 2 - 2;
-    if(m_body.size()/(m_width*m_height) < 0.5)
+    if(m_body.size()/(m_width*m_height) < 0.3)
     {
         for(int j = 0; j < m_body.size(); j++)
         {
@@ -80,6 +82,15 @@ void Object::Explosion()
             y = m_body[j].getPosition().y;
             m_body[j].setPosition(x + speedx, y + speedy);
         }
+        m_destroyedDuration++;
     }
+    if(m_destroyedDuration >= 500)
+    {
+        m_body.erase(m_body.begin());
+    }
+}
 
+bool Object::isDestroyed()
+{
+    return m_isDestroyed;
 }

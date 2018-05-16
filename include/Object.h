@@ -19,12 +19,14 @@ class Object
         void HitBox(Player &player);
         double GetBodySize();
         void Explosion();
+        bool isDestroyed();
 
     protected:
 
     private:
         std::vector<sf::RectangleShape> m_body;
-        double m_x, m_y, m_width, m_height;
+        double m_x, m_y, m_width, m_height, m_destroyedDuration;
+        bool m_isDestroyed;
 };
 
 #endif // OBJECT_H

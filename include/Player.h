@@ -31,6 +31,7 @@ class Player
     private:
         void SetPos(double x, double y);
         sf::RectangleShape m_player;
+        //std::vector<sf::RectangleShape> m_player;
         double m_x, m_y, m_long, m_larg, m_speed, m_fireRate, m_countFire;
         float m_rot;
         std::vector<Bullet> m_bullets;
